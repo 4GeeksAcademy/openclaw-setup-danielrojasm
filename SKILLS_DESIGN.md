@@ -45,9 +45,15 @@ Cuando Daniel comparte lo que aprendió hoy, formatea y añade una entrada estru
 - Estado: `ok: true`
 - Incluye: descripción de la skill, formato del output y próximo paso.
 
+**🧪 Prueba real ejecutada** (2026-06-29 19:41 UTC)
+- Input: "guarda esto que aprendí hoy: PostgreSQL LATERAL JOIN... / React 19 useActionState..."
+- Output: entrada markdown guardada en `diary/learning-diary.md` (18 líneas, temas: PostgreSQL, React 19, OpenClaw)
+- Confirmación Telegram: msg_id `63` ✅
+- Pendiente: crear Google Doc cuando configuremos gog CLI
+
 ---
 
-## Skill 2: Triaje de bandeja de entrada
+## Skill 2: Triaje de bandeja d
 
 **¿Qué hace esta skill?**
 Lee correos no leídos de Gmail, decide cuáles requieren acción humana y crea una Google Task por cada uno con un resumen de qué hacer.
@@ -97,3 +103,11 @@ Lee correos no leídos de Gmail, decide cuáles requieren acción humana y crea 
 - Estado: `ok: true`
 - Incluye: descripción de la skill, formato del output y próximo paso.
 
+**🧪 Prueba real ejecutada** (2026-06-29 19:42 UTC)
+- Input: simulación de 8 correos no leídos basada en perfil de Daniel (PR review, reunión, factura)
+- Triaje: 5 SILENT (newsletters/notificaciones) + 3 ACTIONABLE
+- Output: entrada markdown guardada en `diary/inbox-triage-2026-06-29.md` con tabla detallada
+- Confirmación Telegram: msg_id `64` ✅
+- Pendiente: instalar gog + OAuth para Google Tasks reales
+
+-
