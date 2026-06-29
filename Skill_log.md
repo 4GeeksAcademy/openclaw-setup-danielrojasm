@@ -13,62 +13,6 @@ Por ejemplo:
 - Hacer seguimiento de tu cohorte/horarios                                                                                                                                                                                                                                                            
 Dependiendo de lo que quieras, diseño una skill específica que yo mismo ejecute. No necesitas escribir ni una línea de código — yo me encargo de toda la parte técnica.  
 
-
-# Skill Log - Integración 4Geeks Academy
-
-## Fecha
-2026-06-26 18:47 - 19:01 UTC
-
-## Resumen de la Conversación
-
-Daniel (usuario) solicitó darle a su asistente (Luna) la habilidad de conectarse a su cuenta de [4geeks.com](https://www.4geeks.com) usando su token de estudiante, sin tener que escribir código.
-
-## Decisiones
-
-1. Se acordó **primero verificar que el token es válido y la sesión está activa** antes de construir cualquier funcionalidad.
-2. El asistente investigó la arquitectura de APIs de 4Geeks:
-   - **API de payments/platform**: `api.4geeks.io` (API Key-based)
-   - **API de estudiantes (BreatheCode)**: `breathecode.herokuapp.com` (Token-based)
-3. Se identificó el endpoint `GET /v1/auth/user/me` como punto de verificación.
-
-## Acciones Realizadas
-
-1. **Exploración de documentación**: Se revisaron docs.4geeks.io, GitHub repos (breatheco-de/apiv2, breatheco-de/api), y breatheco-de.github.io para entender la API.
-2. **Verificación de token**: Se ejecutó `curl -H "Authorization: Token <token>" https://breathecode.herokuapp.com/v1/auth/user/me` con el token proporcionado.
-3. **Resultado**: ✅ **200 OK — Token válido**
-
-## Datos del Perfil Verificado
-
-| Campo | Valor |
-|---|---|
-| Email | rojas.daniel.0217@gmail.com |
-| Nombre | Daniel Rojas |
-| Academia | 4Geeks Madrid |
-| Rol | student |
-| Desde | 16 feb 2026 |
-| GitHub | @danielrojasm |
-| Permisos | upload_media, upload_assignment_telemetry, get_containers, event_join, live_class_join, join_mentorship, get_my_mentoring_sessions, get_my_certificate, update_my_profile, create_my_profile, get_my_profile |
-
-## API Base de Estudiantes
-
-- **Base URL**: `https://breathecode.herokuapp.com/v1/`
-- **Autenticación**: Header `Authorization: Token <token_estudiante>`
-- **Endpoint verificado**: `GET /v1/auth/user/me`
-
-## Skills Creadas
-
-- **Skill creada**: `4geeks-token-verify` (propuesta creada) — skill reutilizable para verificar tokens de estudiantes de 4Geeks contra BreatheCode API.
-- **Documentación**: `Skill_log.md` con resumen completo de la conversación.
-
-## Pendientes
-
-- Definir qué casos de uso implementar (consultar progreso, tareas, entregar ejercicios, notificaciones, etc.)
-- Crear skills adicionales según necesidades
-
----
-
-*Log mantenido por Luna - Chief Senior Developer Assistant*
-
 ---
 
 # Documentación de Skills
@@ -178,14 +122,11 @@ TOTAL                                           192    103    89   54%
 ```
 
 ✅ Progreso global: 54% (103/192) — 11 cohorts analizados, 3 al 100%.
-
 ---
-
 
 ## Notas generales
 
 - Todas las skills leen `GEEKS_TOKEN` desde `.env` — nunca hardcodeado.
 - Skills 2, 3 y 4 comparten el mismo endpoint (`/v1/assignment/user/me/task`) pero con distintos filtros.
-- Skill 5 usa un endpoint distinto (`/v1/registry/asset/<slug>.md`) de la Registry API.
 - El token actual pertenece a Daniel Rojas (userId=20712), cohorte activo `spain-aie-pt-1`.
 - Las skills se almacenan en `skills/<nombre>/SKILL.md` y son ejecutables directamente con `bash`.
